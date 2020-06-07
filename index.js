@@ -7,18 +7,18 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(Port, () => console.log(`port listen on ${Port}`));
 const AccessToken = require('twilio').jwt.AccessToken;
 const VoiceGrant = AccessToken.VoiceGrant;
-const VoiceResponse = require('twilio').twiml.VoiceResponse;
+// const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const defaultIdentity = 'alice';
 const callerId = 'client:quick_start';
 const callerNumber = '+92022408099';
 
 
 var accountSid = 'AC82135b13cbdc180941368218de6b871d'; // Your Account SID from www.twilio.com/console
-var authToken = 'ace9a8f378765f9c7f994861a72b375d';
+var authToken = '692839ed542e05efc030000a600f5ff9';
 var API_KEY = 'SK14ee448d0274d6d55d5df3b239231f69'
 var API_KEY_SECRET = 'ktyBK8RgWndUdcEDRfvBYsBmSCB0tOXI'
 const client = require('twilio')(accountSid, authToken);
-
+console.log(client)
 
 app.get('/calling/generatetoken', (req, res) => {
     try {
