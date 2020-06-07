@@ -65,12 +65,21 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 app.post('/calling/usercalling', (req, res, next) => {
     try {
         console.log('')
-        // let { VoiceResponse } = client.twiml;
-        const voiceResponse = new VoiceResponse();
+        client.calls
+            .create({
+                url: 'http://demo.twilio.com/docs/voice.xml',
+                to: '+923022408099',
+                from: '+923421232872'
+            })
+            .then(call => console.log(call.sid));
+        res.status(200).json({ message: 'calling' });
 
-        const dial = voiceResponse.dial({ callerId: '03022408099' });
-        dial.number('03421232872');
-        console.log(voiceResponse.toString())
+        // let { VoiceResponse } = client.twiml;
+        // const voiceResponse = new VoiceResponse();
+
+        // const dial = voiceResponse.dial({ callerId: '03022408099' });
+        // dial.number('03421232872');
+        // console.log(voiceResponse.toString())
         // let paylaod = { ...req.body }
 
         // client.calls
@@ -80,7 +89,7 @@ app.post('/calling/usercalling', (req, res, next) => {
         //         from: `${paylaod.callFromNumber}`
         //     })
         //     .then(call => {
-        res.status(200).json(voiceResponse.toString());
+        // res.status(200).json(voiceResponse.toString());
         //     });
 
 
