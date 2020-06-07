@@ -68,7 +68,7 @@ app.post('/calling/usercalling', (req, res, next) => {
         const voiceResponse = new VoiceResponse();
 
         const dial = voiceResponse.dial({ callerId: '+923421232872' });
-        dial.number('+923022408099');
+        // dial.number('+923022408099');
         console.log(voiceResponse.toString())
         // let paylaod = { ...req.body }
 
