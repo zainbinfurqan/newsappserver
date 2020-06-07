@@ -64,7 +64,17 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 // })
 app.post('/calling/usercalling', (req, res, next) => {
     try {
-        console.log('')
+        const VoiceResponse = require('twilio').twiml.VoiceResponse;
+
+
+        const response = new VoiceResponse();
+        const dial = response.dial({
+            callerId: '+923022408099'
+        });
+        dial.number('+923421232872');
+
+        console.log(response.toString());
+        // console.log('')
         // client.calls
         //     .create({
         //         url: 'http://demo.twilio.com/docs/voice.xml',
@@ -75,10 +85,10 @@ app.post('/calling/usercalling', (req, res, next) => {
         // res.status(200).json({ message: 'calling' });
 
         // let { VoiceResponse } = client.twiml;
-        const voiceResponse = new VoiceResponse();
+        // const voiceResponse = new VoiceResponse();
 
-        const dial = voiceResponse.dial({ callerId: '+923421232872' });
-        dial.number('+923022408099');
+        // const dial = voiceResponse.dial({ callerId: '+923421232872' });
+        // dial.number('+923022408099');
         // console.log(voiceResponse.toString())
         // let paylaod = { ...req.body }
 
@@ -89,7 +99,7 @@ app.post('/calling/usercalling', (req, res, next) => {
         //         from: `${paylaod.callFromNumber}`
         //     })
         //     .then(call => {
-        res.status(200).json(voiceResponse.toString());
+        res.status(200).json(response.toString());
         //     });
 
 
