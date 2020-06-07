@@ -63,12 +63,13 @@ app.get('/calling/generatetoken', (req, res) => {
 })
 app.post('/calling/usercalling', (req, res, next) => {
     try {
+        console.log('')
         let { VoiceResponse } = client.twiml;
         const voiceResponse = new VoiceResponse();
 
         const dial = voiceResponse.dial({ callerId: '+923421232872' });
         dial.number('+923022408099');
-
+        console.log(voiceResponse.toString())
         // let paylaod = { ...req.body }
 
         // client.calls
@@ -83,6 +84,7 @@ app.post('/calling/usercalling', (req, res, next) => {
 
 
     } catch (error) {
+        console.log(error)
         next({ message: error });
     }
 })
