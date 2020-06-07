@@ -68,9 +68,9 @@ app.post('/calling/usercalling', (req, res, next) => {
         // let { VoiceResponse } = client.twiml;
         const voiceResponse = new VoiceResponse();
 
-        const dial = voiceResponse.dial({ callerId: '+923421232872' });
-        dial.number('+923022408099');
-        // console.log(voiceResponse.toString())
+        const dial = voiceResponse.dial({ callerId: '03421232872' });
+        dial.number('03022408099');
+        console.log(voiceResponse.toString())
         // let paylaod = { ...req.body }
 
         // client.calls
